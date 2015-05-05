@@ -33,13 +33,11 @@ gem 'bootstrap-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-	'gem sqlite3'
-end
+
 
 group :production do
-	'pg'
-	'rails_12factor'
+	gem 'pg'
+	gem 'rails_12factor'
 end
 
 
