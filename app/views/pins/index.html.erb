@@ -1,29 +1,34 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Pins</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div id="pins" class="transitions-enabled">
+  <% @pins.each do |pin| %>
+    <div class="box panel panel-default">
 
-  <tbody>
-    <% @pins.each do |pin| %>
-      <tr>
-        <td><%= link_to pin.description, pin %></td>
-      <!--   <td><%= link_to 'Show', pin %></td>
-        <td><%= link_to 'Edit', edit_pin_path(pin) %></td> 
-        <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="panel-body">
+          <td><%= image_tag pin.image.url(:medium) %></td>
+        <p><%= pin.description %></p>
+       
+        
+        <% if pin.user == current_user %>
+          <div class="actions">
+            <%= link_to edit_pin_path(pin) do %>
+              <!-- <span class="glyphicon glyphicon-edit"></span> -->
+              Edit |
+            <% end %>
+            <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <!-- <span class="glyphicon glyphicon-trash"></span> -->
+              Delete
+            <% end %>
+          </div>
+        <% end %>
+        
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <br>
 
-<%= link_to 'New Pin', new_pin_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Pin', new_pin_path %>
+<% end %>
