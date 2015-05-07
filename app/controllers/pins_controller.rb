@@ -10,7 +10,8 @@ before_action :correct_user, only: [:edit, :update, :destroy]
   end
 
   def new
-    @pin = current_user.pins.build
+     @pin = current_user.pins.build
+     # @pin = Pin.new
   end
 
   def edit
