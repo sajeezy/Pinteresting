@@ -185,7 +185,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk
+  aws-sdk (< 2.0)
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
@@ -194,7 +194,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   masonry-rails
-  paperclip
+  paperclip (~> 4.2)
   pg
   rails (= 4.2.1)
   rails_12factor
