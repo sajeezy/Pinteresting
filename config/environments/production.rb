@@ -47,8 +47,8 @@ Rails.application.configure do
     :storage => :s3,
     :s3_credentials => {
       :bucket => ENV['sajjapin'],
-      :access_key_id => ENV['AKIAI2WYPF6R3X7P32MA'],
-      :secret_access_key => ENV['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']
+      :access_key_id => ENV['AKIAIVCFEXV6FUC6TTWA'],
+      :secret_access_key => ENV['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']
     }
   }
   # Use the lowest log level to ensure availability of diagnostic information
