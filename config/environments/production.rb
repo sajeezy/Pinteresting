@@ -54,7 +54,9 @@ Rails.application.configure do
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
-
+ # Required for Heroku
+  # Note to set this to your actual host
+  config.action_mailer.default_url_options = { :host => 'sajjapin.herokuapp.com' }
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
@@ -87,4 +89,9 @@ Rails.application.configure do
   # Paperclip config:
 Paperclip.options[:image_magick_path] = "/opt/ImageMagick/bin"
 Paperclip.options[:command_path] = "/opt/ImageMagick/bin"
+
+
+# config/initializers/paperclip.rb
+Paperclip::Attachment.default_options[:url] = ':s3_domain_url'
+Paperclip::Attachment.default_options[:path] = '/:class/:attachment/:id_partition/:style/:filename'
 end
